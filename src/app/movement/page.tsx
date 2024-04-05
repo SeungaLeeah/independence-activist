@@ -1,5 +1,5 @@
 'use client';
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { fetchHonorData } from '@/app/api/store/data';
 import Pagination from '@/component/Pagenation';
 import { useSearchParams } from 'next/navigation';
@@ -14,9 +14,9 @@ export default function MovementPage() {
     const [pageTitle, setPageTitle] = useState('')
     const params = new URLSearchParams(searchParams.toString());
 
-    const [data, setData] = useState(null);
+    const [data, setData] = useState<any>([]);
     const [isLoading, setIsLoading] = useState(true);
-    const [isError, setIsError] = useState(false);
+    const [isError, setIsError] = useState<boolean>(false);
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [message, setMessage] = useState('')
     const [selectOption, setSelectOption] = useState('nameKo');
@@ -177,6 +177,7 @@ export default function MovementPage() {
     };
 
 
+    // @ts-ignore
     return (
 
         <div className={'w-full flex justify-center px-5 py-3'} >
@@ -224,12 +225,12 @@ export default function MovementPage() {
                 </div>
                 {isModalOpen &&
                     <DetailCard isConfirm={true}
-                                onOk={(e) => {
-                                    e.stopPropagation();
+                                onOk={(e?:React.MouseEvent<HTMLElement, MouseEvent>) => {
+                                    e?.stopPropagation();
                                     handleOk();
                                 }}
-                                onCancel={(e) => {
-                                    e.stopPropagation();
+                                onCancel={(e?:React.MouseEvent<HTMLElement, MouseEvent>) => {
+                                    e?.stopPropagation();
                                     handleCancel();
                                 }}>
                         <p className="medium center_align" style={{wordBreak: 'keep-all'}}>{message}</p>

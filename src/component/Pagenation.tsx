@@ -17,7 +17,7 @@ const Pagination = ({totalElements=0,contentSize=0,setPage,propClass, activeColo
     const [startNum, setStartNum] = useState(1)
     const maxPage = 5
     const [lastNum, setLastNum] = useState(1)
-    let [pages, setPages] = useState(lastNum?new Array(lastNum).fill(1).map((value, idx) => ({
+    let [pages, setPages] = useState<number|{ num: number; active: boolean; }[]>(lastNum?new Array(lastNum).fill(1).map((value, idx) => ({
         num: idx + 1, active: currentPage === idx + 1
     })):0)
 
@@ -87,7 +87,9 @@ const Pagination = ({totalElements=0,contentSize=0,setPage,propClass, activeColo
         if (startNum > 1 && currentPage === startNum) {
             setStartNum((prevState) => prevState - maxPage)
             if (startNum + maxPage > totalPages) {
-                setLastNum((prevState) => prevState - pages.length)
+                if (typeof pages !== 'number') {
+                    setLastNum((prevState) => prevState - pages.length)
+                }
             } else {
                 setLastNum((prevState) => prevState - maxPage)
             }
@@ -103,28 +105,30 @@ const Pagination = ({totalElements=0,contentSize=0,setPage,propClass, activeColo
                 >
                     <Image src={chevronLeftIcon} alt="chevron-left-icon" width={24} height={24}/>
                 </li>
-                {pages.map((page, idx) => {
-                    return (
-                        <li
-                            key={idx}
-                            className='page'
-                            style={page.num === currentPage ? {color: activeColor} : {}}
-                            onClick={() => {
-                                clickPage(page.num)
-                            }}
-                        >
-                            {page.num}
-                        </li>
-                    )
-                })}
+                {typeof pages !== 'number' ? pages.map((page, idx) => {
+                        return (
+                            <li
+                                key={idx}
+                                className='page'
+                                style={page.num === currentPage ? {color: activeColor} : {}}
+                                onClick={() => {
+                                    clickPage(page.num)
+                                }}
+                            >
+                                {page.num}
+                            </li>
+                        )
+                    }) :
+                    <li>
+                    </li>}
                 <li
                     className={`page-icon ${currentPage === totalPages ? 'disabled' : ''}`}
                     onClick={clickNextPage}
                 >
                     <Image src={chevronRightIcon} alt="chevron-right-icon" width={24} height={24}/>
                 </li>
-        </ul>
-    <style jsx>{`
+            </ul>
+            <style jsx>{`
                 .pagination {
                     display: flex;
                     width: 100%;

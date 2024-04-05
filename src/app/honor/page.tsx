@@ -1,5 +1,5 @@
 'use client';
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { fetchHonorData } from '@/app/api/store/data';
 import Pagination from '@/component/Pagenation';
 import { useSearchParams } from 'next/navigation';
@@ -13,7 +13,7 @@ export default function HonorPage() {
     const path = searchParams.get('hunkuk');
     const params = new URLSearchParams(searchParams.toString());
     const [pageTitle, setPageTitle] = useState('')
-    const [data, setData] = useState(null);
+    const [data, setData] = useState<any>(null);
     const [isLoading, setIsLoading] = useState(true);
     const [isError, setIsError] = useState(false);
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -22,7 +22,6 @@ export default function HonorPage() {
     const [textInput, setTextInput] = useState('')
     let fetchedData =[]
     useEffect(() => {
-        console.log(path,'path::')
         if (path === 'PSG00002'){
             setPageTitle('대한민국장')
         }else if (path === 'PSG00003'){
@@ -39,7 +38,7 @@ export default function HonorPage() {
             setPageTitle('대통령표창')
         }
         const fetchData = async () => {
-            setPage()
+            setPage(1)
             try {
                 fetchedData = await fetchHonorData(params);
                 setData(fetchedData);
@@ -223,12 +222,12 @@ export default function HonorPage() {
             </div>
             {isModalOpen &&
                 <DetailCard isConfirm={true}
-                            onOk={(e) => {
-                                e.stopPropagation();
+                            onOk={(e?:React.MouseEvent<HTMLElement, MouseEvent>) => {
+                                e?.stopPropagation();
                                 handleOk();
                             }}
-                            onCancel={(e) => {
-                                e.stopPropagation();
+                            onCancel={(e?:React.MouseEvent<HTMLElement, MouseEvent>) => {
+                                e?.stopPropagation();
                                 handleCancel();
                             }}>
                     <p className="medium center_align" style={{wordBreak: 'keep-all'}}>{message}</p>

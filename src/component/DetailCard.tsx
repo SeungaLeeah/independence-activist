@@ -24,7 +24,7 @@ type Props ={
             <div className={'common-popup__wrap'}  >
                 <div style={{width:width}} className={'common-popup__box'}>
                 <div className={'common-popup__close'}>
-                    <IoIosClose size="50" className={'cursor-pointer'}  onClick={onClose}/>
+                    <IoIosClose size="50" className={'cursor-pointer'}  onClick={() => onClose}/>
                 </div>
                 <div className={'common-popup__body'}>{children}</div>
                 <div className={'common-popup__btn pb-3'}>

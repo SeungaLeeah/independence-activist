@@ -1,7 +1,7 @@
 import React from "react";
 
 type Props ={
-    options: [{ key: string; value: string; }],
+    options: { key: string; value: string; }[],
     width?: string,
     fontSize?:string,
     onChange: (value: string) => void;
