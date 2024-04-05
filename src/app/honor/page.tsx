@@ -1,5 +1,5 @@
 'use client';
-import React, { useState, useEffect } from 'react';
+import React, {useState, useEffect, Suspense} from 'react';
 import { fetchHonorData } from '@/app/api/store/data';
 import Pagination from '@/component/Pagenation';
 import { useSearchParams } from 'next/navigation';
@@ -9,6 +9,14 @@ import SearchInput from "@/component/SearchInput";
 import SearchSelect from "@/component/SearchSelect";
 
 export default function HonorPage() {
+    return (
+        <Suspense fallback={<div>Loading...</div>}>
+            <HonorPageContent />
+        </Suspense>
+    );
+}
+
+function HonorPageContent() {
     const searchParams = useSearchParams();
     const path = searchParams.get('hunkuk');
     const params = new URLSearchParams(searchParams.toString());

@@ -1,5 +1,5 @@
 'use client';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect,Suspense  } from 'react';
 import { fetchHonorData } from '@/app/api/store/data';
 import Pagination from '@/component/Pagenation';
 import { useSearchParams } from 'next/navigation';
@@ -9,6 +9,14 @@ import SearchSelect from "@/component/SearchSelect";
 import SearchInput from "@/component/SearchInput";
 
 export default function MovementPage() {
+    return (
+        <Suspense fallback={<div>Loading...</div>}>
+            <MovementPageContent />
+        </Suspense>
+    );
+}
+
+function MovementPageContent() {
     const searchParams = useSearchParams();
     const path = searchParams.get('workoutAffil');
     const [pageTitle, setPageTitle] = useState('')
@@ -108,9 +116,6 @@ export default function MovementPage() {
             setIsError(true);
         }
     };
-    if (isLoading) {
-        return  <BeatLoader className={'w-screen min-h-screen flex justify-center items-center'} style={{display: "flex !important"}} color="#333" />
-    }
 
     if (isError) {
         return <div>데이터를 가져오는 중에 오류가 발생했습니다.</div>;
