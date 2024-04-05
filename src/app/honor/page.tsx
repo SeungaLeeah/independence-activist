@@ -172,7 +172,6 @@ function HonorPageContent() {
             }
         }
         params.set(selectOption, code);
-        console.log(params,selectOption,code,'param')
         return params;
     };
 
@@ -196,7 +195,7 @@ function HonorPageContent() {
                 <button className={'search__btn'} onClick={handleSearchFilter}>검색</button>
             </div>
             <div className={'flex flex-wrap'}>
-                {data?.ITEMS.map((item: any) => (
+                {data?.ITEMS?.map((item: any) => (
                     <div
                         className={'border-gray-600 rounded border-solid border-1 px-3 py-2 m-1 cursor-pointer'}
                         style={{width: '19.37%'}}

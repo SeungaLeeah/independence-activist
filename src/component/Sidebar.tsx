@@ -16,7 +16,6 @@ type MenuItem = {
 }
 export default function Sidebar({isOpen,onClose}:Props) {
     useEffect(()=>{
-        console.log(isOpen,'isOpen')
 
     },[isOpen])
 
@@ -38,42 +37,42 @@ export default function Sidebar({isOpen,onClose}:Props) {
             classification:''
         },
         {
-            href: '/honor/page',
+            href: '/honor',
             title: '훈격 기준',
             classification:'hunkuk', path: 'PSG00002',
             child:[
-                {href: '/honor/page', title: '대한민국장', classification:'hunkuk', path: 'PSG00002'},
-                {href: '/honor/page', title: '대통령장',classification:'hunkuk', path: 'PSG00003'},
-                {href: '/honor/page', title: '독립장',classification:'hunkuk', path: 'PSG00004'},
-                {href: '/honor/page', title: '애국장',classification:'hunkuk', path: 'PSG00005'},
-                {href: '/honor/page', title: '애족장',classification:'hunkuk', path: 'PSG00006'},
-                {href: '/honor/page', title: '건국포장',classification:'hunkuk', path: 'PSG00007'},
-                {href: '/honor/page', title: '대통령표창',classification:'hunkuk', path: 'PSG00008'},
+                {href: '/honor', title: '대한민국장', classification:'hunkuk', path: 'PSG00002'},
+                {href: '/honor', title: '대통령장',classification:'hunkuk', path: 'PSG00003'},
+                {href: '/honor', title: '독립장',classification:'hunkuk', path: 'PSG00004'},
+                {href: '/honor', title: '애국장',classification:'hunkuk', path: 'PSG00005'},
+                {href: '/honor', title: '애족장',classification:'hunkuk', path: 'PSG00006'},
+                {href: '/honor', title: '건국포장',classification:'hunkuk', path: 'PSG00007'},
+                {href: '/honor', title: '대통령표창',classification:'hunkuk', path: 'PSG00008'},
 
             ]
 
         },
         {
-            href: '/movement/page',
+            href: '/movement',
             title: '운동계열',
             classification:'workoutAffil', path: 'UGC00002',
             child:[
-                { href: '/movement/page', title: '의병',classification:'workoutAffil', path: 'UGC00002'},
-                { href: '/movement/page', title: '3.1운동',classification:'workoutAffil', path: 'UGC00003'},
-                { href: '/movement/page', title: '문화운동',classification:'workoutAffil', path: 'UGC00004'},
-                { href: '/movement/page', title: '국내항일',classification:'workoutAffil', path: 'UGC00005'},
-                { href: '/movement/page', title: '의열투쟁',classification:'workoutAffil', path: 'UGC00006'},
-                { href: '/movement/page', title: '학생운동',classification:'workoutAffil', path: 'UGC00007'},
-                { href: '/movement/page', title: '광복군',classification:'workoutAffil', path: 'UGC00008'},
-                { href: '/movement/page', title: '계몽운동',classification:'workoutAffil', path: 'UGC00009'},
-                { href: '/movement/page', title: '임시정부',classification:'workoutAffil', path: 'UGC00010'},
-                { href: '/movement/page', title: '일본방면',classification:'workoutAffil', path: 'UGC00011'},
-                { href: '/movement/page', title: '만주방면',classification:'workoutAffil', path: 'UGC00012'},
-                { href: '/movement/page', title: '중국방면',classification:'workoutAffil', path: 'UGC00013'},
-                { href: '/movement/page', title: '노령방면',classification:'workoutAffil', path: 'UGC00014'},
-                { href: '/movement/page', title: '미주방면',classification:'workoutAffil', path: 'UGC00015'},
-                { href: '/movement/page', title: '인도네시아방면',classification:'workoutAffil', path: 'UGC00017'},
-                { href: '/movement/page', title: '독립운동지원',classification:'workoutAffil', path: 'UGC00023'},
+                { href: '/movement', title: '의병',classification:'workoutAffil', path: 'UGC00002'},
+                { href: '/movement', title: '3.1운동',classification:'workoutAffil', path: 'UGC00003'},
+                { href: '/movement', title: '문화운동',classification:'workoutAffil', path: 'UGC00004'},
+                { href: '/movement', title: '국내항일',classification:'workoutAffil', path: 'UGC00005'},
+                { href: '/movement', title: '의열투쟁',classification:'workoutAffil', path: 'UGC00006'},
+                { href: '/movement', title: '학생운동',classification:'workoutAffil', path: 'UGC00007'},
+                { href: '/movement', title: '광복군',classification:'workoutAffil', path: 'UGC00008'},
+                { href: '/movement', title: '계몽운동',classification:'workoutAffil', path: 'UGC00009'},
+                { href: '/movement', title: '임시정부',classification:'workoutAffil', path: 'UGC00010'},
+                { href: '/movement', title: '일본방면',classification:'workoutAffil', path: 'UGC00011'},
+                { href: '/movement', title: '만주방면',classification:'workoutAffil', path: 'UGC00012'},
+                { href: '/movement', title: '중국방면',classification:'workoutAffil', path: 'UGC00013'},
+                { href: '/movement', title: '노령방면',classification:'workoutAffil', path: 'UGC00014'},
+                { href: '/movement', title: '미주방면',classification:'workoutAffil', path: 'UGC00015'},
+                { href: '/movement', title: '인도네시아방면',classification:'workoutAffil', path: 'UGC00017'},
+                { href: '/movement', title: '독립운동지원',classification:'workoutAffil', path: 'UGC00023'},
             ]
 
         },
