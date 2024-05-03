@@ -85,7 +85,7 @@ export default function Sidebar({isOpen,onClose}:Props) {
                 - {item.title}
             </Link>
             {item.child && childOpen[item.title] && (
-                <ul className="ml-0.5">
+                <ul className="ml-0.5" onClick={onClose}>
                     {item.child.map((childItem) => renderMenuItem(childItem, true))}
                 </ul>
             )}
