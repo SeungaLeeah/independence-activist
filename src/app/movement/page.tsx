@@ -170,10 +170,12 @@ function MovementPageContent() {
             }
         }
         params.set(selectOption, code);
+        params.set('nPageIndex', '1');
+        params.set('nCountPerPage', '20');
+        params.set('workoutAffil', path || '');
         return params;
     };
     const handleSearchFilter = async () => {
-        setPage(1);
         searchPageQuery();
         const fetchedData = await fetchHonorData(params);
         setData(fetchedData);

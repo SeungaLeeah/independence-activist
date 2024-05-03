@@ -172,12 +172,13 @@ function HonorPageContent() {
             }
         }
         params.set(selectOption, code);
+        params.set('nPageIndex', '1');
+        params.set('nCountPerPage', '20');
         return params;
     };
 
 
     const handleSearchFilter = async () => {
-        setPage(1)
         searchPageQuery()
         fetchedData = await fetchHonorData(params);
         setData(fetchedData);
