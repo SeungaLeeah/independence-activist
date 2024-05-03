@@ -23,10 +23,7 @@ const Pagination = ({totalElements=0,contentSize=0,setPage,propClass, activeColo
 
     useEffect(() => {
         if (totalElements !== null && contentSize !== null) {
-            console.log(totalElements, contentSize,'정보')
-            console.log(totalElements / contentSize,'나누기')
             setTotalPages(Math.ceil(totalElements / contentSize));
-            console.log(totalPages,'totalPages')
             setLastNum(Math.min(startNum + maxPage - 1, totalPages));
         }
 
